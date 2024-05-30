@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+
+{% block title %}SIGNUP VIEW{% endblock title %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-success form-control">SignUp</button>
+            <a href="{% url 'home:index' %}" class="btn btn-warning">Cancel</a>
+    </form>
+{% endblock content %}

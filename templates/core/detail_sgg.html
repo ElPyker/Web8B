@@ -1,0 +1,46 @@
+{% extends "base/base.html" %}
+
+{% block title %}DETAIL GRANT GOAL VIEW{% endblock title %}
+
+{% block content %}
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          General Data
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          The GrantGoal name is: <strong>{{ object.sggname }}</strong> and Its Description is: {{ object.description }}, the Responsable user is: <code>{{ object.user }}</code>.
+          <strong>Its progress: {{ object.progress }}</strong>
+          the grantgoal related is: <code>{{ object.grantgoal }}</code>.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Date Data
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          The timestamp for the grantgoal is: <strong>{{ object.timestamp }}.</strong> Its final date is: {{ object.final_date }} and its days duration:  <code>{{ object.days_durations }}</code>.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          STATUS DATA
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          The Status for the grantgoal is: <strong>{{object.status }}</strong> Its state is: {{ object.state }} and the priority is:  <code>{{ object.priority }}</code>.
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

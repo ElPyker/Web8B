@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+
+{% block title %}DELETE GOAL VIEW{% endblock title %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+            <h2>¿Realmente deseas eliminar este Goal: <code>{{ object }}</code> ?</h2>
+            
+            <button type="submit" class="btn btn-outline-danger form-control">Delete Goal</button>
+            <a href="{% url 'core:list_g' %}" class="btn btn-outline-warning form-control">Cancel</a>
+    </form>
+{% endblock content %}

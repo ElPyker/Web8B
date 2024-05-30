@@ -1,0 +1,31 @@
+{% extends "base/base.html" %}
+
+{% block title %}AREA LIST VIEW{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'core:create_a' %}" class="btn btn-outline-success form-control">New Area</a>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>NAME</th>
+            <th></th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for area in object_list %}
+                <tr>
+                    <td>{{ area.id }}</td>
+                    <td>{{ area.area_name }}</td>
+                    {% comment %} <td><a href="{% url 'core:detail_a' area.pk %}" class="btn btn-outline-info">Detail</a></td> {% endcomment %}
+                    <td><a href="{% url 'core:update_a' area.pk %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'core:delete_a' area.pk %}" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

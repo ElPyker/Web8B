@@ -5,8 +5,8 @@
    <h1>Hola Mundo Django XD ...</h1>
 
    {% block content %}
-
-        {% if request.user.is_authenticated %}
+      {% if request.user.is_authenticated %}  
+      <h3>Welcome User: "{{ request.user.username }}" to Plesem System!!</h3>
         <table class="table table-striped">
             <thead>
                 <th>ID</th>
@@ -32,11 +32,11 @@
         {% else %}
             <form action="" method="post">
                 {% csrf_token %}
-                <input type="text" name="" id="">
-                <input type="password" name="" id="">
-                <button>LogIn</button>
-                <a href="">Cancel</a>
+                    {{ form }}
+                <button type="submit" class="btn btn-primary form-control">LogIn</button>
+                <a href="{% url 'home:index' %}" class="btn btn-warning form-control">Cancel</a>
             </form>
+            <h4>Si no tienes una cuenta, Registrate <a href="{% url 'home:signup' %}">Aqui</a></h4>
         {% endif %}
         
 {% endblock content %}

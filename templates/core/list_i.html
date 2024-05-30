@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+
+{% block title %}GOAL LIST VIEW{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'core:create_i' %}" class="btn btn-outline-success form-control">New Issue</a>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>USER</th>
+            <th>GOAL</th>
+            <th>DAYSDUR</th>
+            <th>TIMESTAMP</th>
+            <th></th>
+            <th>ACTIONS</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for issue in object_list %}
+                <tr>
+                    <td>{{ issue.id }}</td>
+                    <td>{{ issue.issuename }}</td>
+                    <td>{{ issue.user }}</td>
+                    <td>{{ issue.goal }}</td>
+                    <td>{{ issue.days_duration }}</td>
+                    <td>{{ issue.timestamp }}</td>
+                    <td><a href="{% url 'core:detail_i' issue.pk %}" class="btn btn-outline-info">Detail</a></td>
+                    <td><a href="{% url 'core:update_i' issue.pk %}" class="btn btn-outline-warning">Update</a></td>
+                    <td><a href="{% url 'core:delete_i' issue.pk %}" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
